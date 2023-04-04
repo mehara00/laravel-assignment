@@ -17,7 +17,7 @@ class GuestController extends Controller
     public function index()
     {
         return response()->json([
-            //getting all records
+            //getting all guests records
             DB::table('guests')->get()
         ]);
     }
@@ -35,7 +35,17 @@ class GuestController extends Controller
      */
     public function store(StoreguestRequest $request)
     {
-        //
+        $name = $request -> input ('name');
+        $contact = $request -> input ('contact');
+        $nic = $request -> input ('nic');
+
+        DB::transaction (function() use ($name, $contact, $nic){
+            DB::table('guests') -> insertGetId([
+                'name' => $name,
+                'contact' => $contact,
+                'nic' => $nic
+            ]);
+        });
     }
 
     /**

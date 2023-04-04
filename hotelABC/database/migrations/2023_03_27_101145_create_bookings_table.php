@@ -18,6 +18,7 @@ return new class extends Migration
                 ->on ('packages');
             $table -> dateTime(column:'check_in');
             $table -> dateTime(column:'check_out');
+           // $table -> string (column:'status');
             $table->timestamps();
         });
     }

@@ -4,12 +4,15 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\booking;
+use App\Models\payment_detail;
 
-class BookingSeeder extends Seeder
+class PaymentDetailSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     */
     public function run(): void
     {
-        booking::factory() -> count (7) -> create();
+        room::factory() -> count (5) -> create();
     }
 }
